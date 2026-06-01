@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+dist/
+build/
+.vscode/settings.json
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.idea/
+extracted/
+*.py
