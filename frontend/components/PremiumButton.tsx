@@ -49,7 +49,7 @@ export const PremiumButton: React.FC<PremiumButtonProps> = ({
         ${isBtnDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''} 
         ${className}
       `}
-      {...props}
+      {...(props as any)}
     >
       {/* Background glow shadow */}
       {glow && !isBtnDisabled && (

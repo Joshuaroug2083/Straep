@@ -1,0 +1,26 @@
+[project]
+name = "straep"
+version = "0.1.0"
+description = "Straep - Brand-first SaaS platform"
+requires-python = ">=3.13"
+dependencies = [
+    "Django==4.2.11",
+    "djangorestframework==3.14.0",
+    "django-cors-headers==4.3.1",
+    "django-dotenv>=1.4.0",
+    "python-decouple==3.8",
+    "psycopg2-binary==2.9.9",
+    "djangorestframework-simplejwt>=5.4.0",
+    "Pillow>=10.4.0",
+    "celery==5.3.4",
+    "redis==5.0.1",
+    "requests==2.31.0",
+    "cloudinary==1.37.0",
+    "python-jose==3.3.0",
+    "cryptography==41.0.7",
+    "gunicorn==21.2.0",
+    "whitenoise==6.6.0",
+]
+
+[tool.poetry.scripts]
+migrate = "manage:main"
