@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straep - Your Brand. Your Page. Your Market.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        nav {
+            border-bottom: 1px solid #e2e8f0;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                color: #475569;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            .nav-links a:hover {
+                color: #0f172a;
+            }
+        }
+
+        .nav-button {
+            background-color: #0f172a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #1e293b;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            padding: 5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 8rem 0;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .gradient {
+            background: linear-gradient(to right, #0284c7, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .button-primary {
+            background-color: #0284c7;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 2px solid #cbd5e1;
+            color: #0f172a;
+            background: white;
+        }
+
+        .button-secondary:hover {
+            border-color: #94a3b8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-0.25rem);
+        }
+
+        .feature-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-icon-blue {
+            background-color: #dbeafe;
+            color: #0284c7;
+        }
+
+        .feature-icon-cyan {
+            background-color: #cffafe;
+            color: #06b6d4;
+        }
+
+        .feature-icon-purple {
+            background-color: #e9d5ff;
+            color: #a855f7;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #475569;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .feature-link {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .feature-link:hover {
+            color: #0369a1;
+        }
+
+        .cta {
+            background: linear-gradient(to right, #0284c7, #06b6d4);
+            color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .cta h2 {
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: #0284c7;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #f0f9ff;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            margin-top: 5rem;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-section h5 {
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .api-status {
+            background-color: #ecfdf5;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .api-status.error {
+            background-color: #fef2f2;
+            border-color: #fca5a5;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <nav-content>
+            <div class="logo">Straep</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#docs">Docs</a>
+            </div>
+            <button class="nav-button">Sign In</button>
+        </nav-content>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>
+                        Your brand. Your page.
+                        <br>
+                        <span class="gradient">Your market. Your growth.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Build stunning brand pages, run your digital storefront, and manage leads—all in one beautiful platform.
+                    </p>
+                    <div class="button-group">
+                        <button class="button button-primary">Get Started Free</button>
+                        <button class="button button-secondary">Watch Demo</button>
+                    </div>
+                </div>
+
+                <!-- API Status -->
+                <div class="api-status" id="api-status">
+                    ✓ API Server Connected (Port 8000)
+                </div>
+
+                <!-- Features Section -->
+                <div id="features">
+                    <div class="features">
+                        <!-- Feature 1 -->
+                        <div class="feature-card">
+                            <div class="feature-icon feature-icon-blue">🌐</div>
+                            <h3>Brand Pages</h3>
+                            <p>Create a beautiful, customizable brand page that represents your business. No coding required.</p>
+                            <a href="#" class="feature-link">Learn more →</a>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="feature-card">
+                            <div class="feature-icon feature-icon-cyan">⚡</div>
+                            <h3>Digital Storefront</h3>
+                            <p>Showcase and sell your products and services directly to customers with built-in shopping features.</p>
+                            <a href="#" class="feature-link">Learn more →</a>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="feature-card">
+                            <div class="feature-icon feature-icon-purple">📊</div>
+                            <h3>Lead Management</h3>
+                            <p>Capture, organize, and convert leads with our powerful inquiry management system.</p>
+                            <a href="#" class="feature-link">Learn more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta">
+                    <h2>Ready to grow your business?</h2>
+                    <p>Join thousands of creators, makers, and business owners using Straep.</p>
+                    <button class="cta-button">Start your free trial</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h5>Straep</h5>
+                    <p>Your all-in-one platform for brand, storefront, and lead management.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Product</h5>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Straep. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check backend API connectivity
+        fetch('http://localhost:8000/api/v1/')
+            .then(response => {
+                const statusEl = document.getElementById('api-status');
+                if (response.ok) {
+                    statusEl.innerHTML = '✓ API Server Connected (Port 8000)';
+                    statusEl.className = 'api-status';
+                } else {
+                    throw new Error('API returned ' + response.status);
+                }
+            })
+            .catch(error => {
+                const statusEl = document.getElementById('api-status');
+                statusEl.innerHTML = '✗ API Server Not Connected - Make sure Django is running on port 8000';
+                statusEl.className = 'api-status error';
+            });
+    </script>
+</body>
+</html>
