@@ -19,7 +19,8 @@ import {
   HelpCircle,
   Megaphone,
   AlertTriangle,
-  Lock
+  Lock,
+  Compass
 } from 'lucide-react';
 
 export default function HomeFeed() {

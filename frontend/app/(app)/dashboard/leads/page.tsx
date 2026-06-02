@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { api } from '../../../../lib/api';
 import { usePlan } from '../../../../hooks/usePlan';
 import { PremiumInput } from '../../../../components/PremiumInput';
