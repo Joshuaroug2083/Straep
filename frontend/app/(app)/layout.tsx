@@ -13,7 +13,8 @@ import {
   Settings, 
   LogOut,
   Menu,
-  X
+  X,
+  CreditCard
 } from 'lucide-react';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -44,7 +45,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   if (user && user.account_type !== 'personal') {
     navItems.push(
       { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard className="w-5 h-5" /> },
-      { label: 'Leads Inbox', href: '/dashboard/leads', icon: <Inbox className="w-5 h-5" /> }
+      { label: 'Leads Inbox', href: '/dashboard/leads', icon: <Inbox className="w-5 h-5" /> },
+      { label: 'Billing', href: '/dashboard/billing', icon: <CreditCard className="w-5 h-5" /> }
     );
   }
 
